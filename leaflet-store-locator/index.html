@@ -12,34 +12,61 @@
     <link rel="stylesheet" href="./styles.css">
     <title>Store Locator</title>
 </head>
-<div class="crowd-meter">
-    <p><strong>Crowd Meter</strong></p>
-    <div class="meter">
-        <div class="bar" id="bar1"></div>
-        <div class="bar" id="bar2"></div>
-        <div class="bar" id="bar3"></div>
-        <div class="bar" id="bar4"></div>
-        <div class="bar" id="bar5"></div>
-    </div>
-    <button class="check-in-btn">Check-in</button>
+
 <body>
+    <!-- Top Navigation Bar -->
+    <div class="topnav">
+        <div class="search-container">
+            <form action="javascript:void(0);" class="search-bar">
+                <!-- Search Box -->
+                <input type="text" id="searchBox" placeholder="Search for a store..." onfocus="showSuggestions()"
+                    oninput="filterShops()" />
+
+                <!-- Allow Location Button -->
+                <button type="button" id="allowLocation" onclick="getUserLocation()">
+                    Allow Location
+                </button>
+            </form>
+
+            <!-- Suggestions Dropdown -->
+            <ul id="suggestionList" class="suggestions"></ul>
+        </div>
+    </div>
+
     <main>
+        <!-- Store List -->
         <div class="store-list">
             <div class="heading">
-                <h2>Our outlets</h2>
+                <h2>Our Outlets</h2>
             </div>
             <ul class="list">
+                <!-- Dynamic Store List -->
             </ul>
-            
         </div>
+
+        <!-- Map Container -->
         <div id="map"></div>
-        
-        
+
+        <!-- Crowd Meter -->
+        <div class="crowd-meter">
+            <p><strong>Crowd Meter</strong></p>
+            <div class="meter">
+                <div class="bar" id="bar1"></div>
+                <div class="bar" id="bar2"></div>
+                <div class="bar" id="bar3"></div>
+                <div class="bar" id="bar4"></div>
+                <div class="bar" id="bar5"></div>
+            </div>
+            <button class="check-in-btn" onclick="checkIn()">Check-in</button>
+        </div>
     </main>
-    
+
+    <!-- Leaflet Map Script -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
+
+    <!-- Application Scripts -->
     <script src="./stores.js"></script>
     <script src="./app.js"></script>
 </body>
