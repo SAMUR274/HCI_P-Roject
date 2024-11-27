@@ -4,6 +4,7 @@ const attribution =
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Coded by coder\'s gyan with ❤️';
 const tileLayer = L.tileLayer(tileUrl, { attribution });
 tileLayer.addTo(myMap);
+let selectedStoreName = null;
 
 const crowdDensityLevels = {};
 storeList.forEach(store => {
@@ -70,7 +71,8 @@ function filterShops() {
 function selectStore(storeName) {
     const suggestionList = document.getElementById("suggestionList");
     suggestionList.style.display = "none"; // Hide dropdown
-    alert(`You selected ${storeName}`);
+    selectedStoreName = storeName;
+    alert(`You selected ${selectedStoreName}`);
     // Additional logic for handling store selection can go here
 }
 function getUserLocation() {
@@ -80,7 +82,15 @@ function getUserLocation() {
     setTimeout(() => {
         const dummyStore = storeList[0]; // Assume Smart Shop 1 as the nearest
         alert(`We found a store near you: ${dummyStore.properties.name}`);
-    }, 2000); // Simulate a delay for getting location
+    }, 1000); // Simulate a delay for getting location
+}
+
+function checkIn(){
+    if (selectedStoreName) {
+        alert(`You have successfully checked into ${selectedStoreName}!`);
+    } else {
+        alert("Please select a store before checking in.");
+    }
 }
 
 function calculateDistance(lat1, lng1, lat2, lng2) {
@@ -117,6 +127,7 @@ function generateList() {
         const a = document.createElement('a');
         const p = document.createElement('p');
         a.addEventListener('click', () => {
+            selectedStoreName = shop.properties.name;
             flyToStore(shop);
             updateCrowdMeter(shop.properties.name); // Update crowd meter on click
         });
@@ -147,6 +158,11 @@ function makePopupContent(shop) {
 }
 function onEachFeature(feature, layer) {
     layer.bindPopup(makePopupContent(feature), { closeButton: false, offset: L.point(0, -8) });
+    layer.on('click', () => {
+        selectedStoreName = feature.properties.name;
+        flyToStore(feature);
+        updateCrowdMeter(selectedStoreName); // Update crowd meter
+    });
 }
 
 var myIcon = L.icon({
@@ -166,14 +182,14 @@ function flyToStore(store) {
     const lat = store.geometry.coordinates[1];
     const lng = store.geometry.coordinates[0];
     myMap.flyTo([lat, lng], 14, {
-        duration: 3
+        duration: 1
     });
     setTimeout(() => {
         L.popup({ closeButton: false, offset: L.point(0, -8) })
             .setLatLng([lat, lng])
             .setContent(makePopupContent(store))
             .openOn(myMap);
-    }, 3000);
+    }, 1000);
 
     // Update the crowd meter
     updateCrowdMeter(store.properties.name);
