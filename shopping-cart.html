@@ -6,30 +6,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <title>Shopping Cart</title>
 </head>
 <body>
-    <div class="shopping-container">
-        <h1>Shopping Cart</h1>
-        <div class="product-list">
-            <div class="product-grid" id="productGrid">
-                <!-- Products will be dynamically added here -->
+    <nav class="navigation-bar">
+        <button class="back-button">← Back</button>
+        <div class="search-container">
+            <input type="text" id="searchBox" class="search-box" placeholder="Search for products..." />
+            <button id="searchButton" class="search-button">Search</button>
+        </div>
+        <div class="user-avatar">
+            <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar-icon" />
+            <div class="dropdown-menu">
+                <ul>
+                    <li>Manage Favorite Products</li>
+                    <li>Log Out</li>
+                </ul>
             </div>
         </div>
-        
-        <div class="cart-summary">
-            <h2>Selected Items</h2>
-            <ul id="cartItems" class="cart-items">
-                <!-- Cart items will be dynamically added here -->
-            </ul>
-            <div class="cart-total">
-                <p>Total Items: <span id="totalItems">0</span></p>
+    </nav>
+    <div class="shopping-container">
+        <div class="main-grid">
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <h2>Filters</h2>
+                <div class="filter-group">
+                    <label for="filterPrice">Price:</label>
+                    <select id="filterPrice" onchange="applyFilters()">
+                        <option value="">Select</option>
+                        <option value="low-to-high">Low to High</option>
+                        <option value="high-to-low">High to Low</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="priceRange">Set Price Range:</label>
+                    <input type="number" id="minPrice" placeholder="Min Price" onchange="applyFilters()" />
+                    <input type="number" id="maxPrice" placeholder="Max Price" onchange="applyFilters()" />
+                </div>
+                <div class="filter-group">
+                    <label for="filterBrand">Brand:</label>
+                    <select id="filterBrand" onchange="applyFilters()">
+                        <option value="">All Brands</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterTag">Tag:</label>
+                    <select id="filterTag" onchange="applyFilters()">
+                        <option value="">All Tags</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterFavorite">Favorite:</label>
+                    <select id="filterFavorite" onchange="applyFilters()">
+                        <option value="">All</option>
+                        <option value="favorite">Favorited</option>
+                        <option value="unfavorite">Unfavorited</option>
+                    </select>
+                </div>
             </div>
-            <button id="doneButton" class="done-button rgb-effect" onclick="proceedToFloorMap()">
-                DONE
-            </button>
+    
+            <!-- Product List -->
+            <div class="product-list">
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be dynamically added here -->
+                </div>
+            </div>
+    
+            <!-- Selected Products (Cart Summary) -->
+            <div class="cart-summary">
+                <h2>Selected Items</h2>
+                <ul id="cartItems" class="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </ul>
+                <div class="cart-total">
+                    <p>Total Items: <span id="totalItems">0</span></p>
+                    <p>Total Price: <span id="totalPrice">$0.00</span></p>
+                </div>
+                <button id="doneButton" class="done-button rgb-effect" onclick="proceedToFloorMap()">
+                    DONE
+                </button>
+            </div>
+            
         </div>
     </div>
+    
     <script src="./shopping-cart.js"></script>
 </body>
 </html> 
