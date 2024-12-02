@@ -7,10 +7,10 @@ const storeHeight = 300;
 
 // Simulated crowd density data (in a real app, this would come from sensors/backend)
 const crowdData = [
-    [150, 150, 0.8],  // [x, y, intensity]
-    [100, 100, 0.5],
-    [200, 200, 0.3],
-    [250, 150, 0.6],
+    [145, 350, 0.8],  // [x, y, intensity]
+    [180, 350, 0.5],
+    [215, 350, 0.3],
+    [250, 350, 0.6],
     // Add more points as needed
 ];
 
@@ -39,8 +39,21 @@ function initializeHeatmap() {
         return [point[0], point[1], point[2] * 1000]; // Scale intensity for better visualization
     });
 
+    const randomizedCrowdData = crowdData.map((point, index) => {
+        // Randomly adjust intensity
+        const randomIntensity = Math.random();  // Generate random value between 0 and 1
+        const checkoutName = `Checkout ${index + 1}`; // Assign checkout names dynamically
+        const intensity = randomIntensity * 1000;  // Scale intensity for better visualization
+        const density = randomIntensity.toFixed(1); // Convert to percentage for crowd density
+        
+        // Add the data to the table
+        addRowToTable(checkoutName, density, randomIntensity.toFixed(2));
+        
+        return [point[0], point[1], intensity];  // Return the modified crowd data
+    });
+
     // Create and add heatmap layer
-    heatmapLayer = L.heatLayer(heatData, {
+    heatmapLayer = L.heatLayer(randomizedCrowdData, {
         radius: 30,
         blur: 20,
         maxZoom: 1,
@@ -54,12 +67,17 @@ function initializeHeatmap() {
 
 function displaySelectedItems() {
     // Get selected items from localStorage
-    const selectedItems = JSON.parse(localStorage.getItem('selectedItems') || '[]');
+    let selectedItems = JSON.parse(localStorage.getItem('selectedItems') || '[]');
     const itemsList = document.getElementById('selectedItems');
 
     // Clear existing markers
     markers.forEach(marker => map.removeLayer(marker));
     markers = [];
+
+    selectedItems = selectedItems.filter(item => !item.checked); // Remove checked items
+
+    // Update the localStorage to remove checked items
+    localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
 
     // Add items to the list and map
     itemsList.innerHTML = selectedItems.map((item, index) => {
@@ -72,7 +90,8 @@ function displaySelectedItems() {
         // Return list item HTML
         return `
             <li class="item-entry">
-                ${item.name}
+                <input type="checkbox" id="item-check-${index}" class="item-check" ${item.checked ? 'checked' : ''} onclick="toggleCheck(${index})" />
+                <span>${item.name}</span>
                 <button class="locate-btn" onclick="locateItem(${index})">
                     Locate
                 </button>
@@ -115,6 +134,50 @@ function findNearestCrowdPoint(point) {
         const distance = Math.hypot(current[0] - point.lat, current[1] - point.lng);
         return distance < nearest.distance ? { point: current, distance } : nearest;
     }, { point: null, distance: Infinity }).point;
+}
+
+function addRowToTable(checkoutName, density) {
+    const tableBody = document.querySelector('#checkoutTable tbody');
+    const row = document.createElement('tr');
+
+    if(density == 1){
+        row.innerHTML = `
+            <td>${checkoutName}: +20 minutes</td>
+        `;
+    }else{
+        row.innerHTML = `
+            <td>${checkoutName}: ${(density * 10) * 2} minutes</td>
+            `;
+    }
+        
+    tableBody.appendChild(row);
+}
+
+function toggleCheck(index) {
+    const selectedItems = JSON.parse(localStorage.getItem('selectedItems') || '[]');
+    
+    // Toggle the "checked" state of the selected item
+    selectedItems[index].checked = true;  // Set item as checked (mark as completed)
+
+    // Remove the item from the map
+    removeItemFromMap(index);
+
+    // Update the selected items in localStorage
+    localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+
+    // Re-render the list of selected items to reflect the change
+    displaySelectedItems();
+}
+
+function removeItemFromMap(index) {
+    // Remove the marker from the map
+    const marker = markers[index];
+    if (marker) {
+        map.removeLayer(marker);
+    }
+
+    // Optionally remove the marker from the markers array to clean up
+    markers.splice(index, 1);
 }
 
 // Initialize map when DOM is loaded

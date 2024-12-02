@@ -1,26 +1,26 @@
 // Sample product data - in a real application, this would come from a backend
 // Product data with 20 daily commodities
 const products = [
-    { id: 1, name: 'Huggies Baby Wipes', price: 4.99, description: 'Gentle and safe wet wipes for babies', brand: 'Huggies', tag: ['alcohol-free', 'baby-friendly'], location: [100, 150], favorite: false },
-    { id: 2, name: "Lay's Classic Potato Chips", price: 2.49, description: 'Crispy and delicious snack', brand: 'Lay’s', tag: ['snack', 'crispy'], location: [200, 100], favorite: false },
-    { id: 3, name: 'Olay Facial Cleanser', price: 8.99, description: 'Deep cleansing with moisturizing effect', brand: 'Olay', tag: ['moisturizing', 'skin-care'], location: [120, 180], favorite: false },
-    { id: 4, name: 'Pantene Shampoo', price: 5.99, description: 'For silky and strong hair', brand: 'Pantene', tag: ['hair-care', 'moisturizing'], location: [180, 140], favorite: false },
-    { id: 5, name: 'Nestle KitKat', price: 1.49, description: 'Crispy wafer chocolate bar', brand: 'Nestle', tag: ['snack', 'chocolate'], location: [140, 220], favorite: false },
-    { id: 6, name: 'Colgate Toothpaste', price: 3.99, description: 'Cavity protection and fresh breath', brand: 'Colgate', tag: ['oral-care', 'minty'], location: [220, 140], favorite: false },
+    { id: 1, name: 'Huggies Baby Wipes', price: 4.99, description: 'Gentle and safe wet wipes for babies', brand: 'Huggies', tag: ['alcohol-free', 'baby-friendly'], location: [100, 135], favorite: false },
+    { id: 2, name: "Lay's Classic Potato Chips", price: 2.49, description: 'Crispy and delicious snack', brand: 'Lay’s', tag: ['snack', 'crispy'], location: [200, 90], favorite: false },
+    { id: 3, name: 'Olay Facial Cleanser', price: 8.99, description: 'Deep cleansing with moisturizing effect', brand: 'Olay', tag: ['moisturizing', 'skin-care'], location: [90, 210], favorite: false },
+    { id: 4, name: 'Pantene Shampoo', price: 5.99, description: 'For silky and strong hair', brand: 'Pantene', tag: ['hair-care', 'moisturizing'], location: [70, 210], favorite: false },
+    { id: 5, name: 'Nestle KitKat', price: 1.49, description: 'Crispy wafer chocolate bar', brand: 'Nestle', tag: ['snack', 'chocolate'], location: [170, 220], favorite: false },
+    { id: 6, name: 'Colgate Toothpaste', price: 3.99, description: 'Cavity protection and fresh breath', brand: 'Colgate', tag: ['oral-care', 'minty'], location: [220, 150], favorite: false },
     { id: 7, name: 'Dove Soap Bar', price: 2.99, description: 'Gentle cleansing soap with moisturizer', brand: 'Dove', tag: ['skin-care', 'hydrating'], location: [200, 160], favorite: false },
     { id: 8, name: 'Tide Laundry Detergent', price: 9.99, description: 'Powerful stain removal formula', brand: 'Tide', tag: ['laundry', 'stain-removal'], location: [170, 110], favorite: false },
-    { id: 9, name: 'Quaker Oats', price: 4.49, description: 'Healthy breakfast choice', brand: 'Quaker', tag: ['breakfast', 'healthy'], location: [100, 200], favorite: false },
+    { id: 9, name: 'Quaker Oats', price: 4.49, description: 'Healthy breakfast choice', brand: 'Quaker', tag: ['breakfast', 'healthy'], location: [100, 210], favorite: false },
     { id: 10, name: 'Lindt Milk Chocolate', price: 3.49, description: 'Smooth and creamy milk chocolate', brand: 'Lindt', tag: ['snack', 'chocolate'], location: [160, 120], favorite: false },
-    { id: 11, name: "Johnson's Baby Lotion", price: 5.49, description: 'Gentle moisturizer for baby skin', brand: 'Johnson’s', tag: ['baby-friendly', 'skin-care'], location: [140, 180], favorite: false },
-    { id: 12, name: 'Kleenex Tissues', price: 1.99, description: 'Soft and absorbent facial tissues', brand: 'Kleenex', tag: ['soft', 'absorbent'], location: [120, 140], favorite: false },
+    { id: 11, name: "Johnson's Baby Lotion", price: 5.49, description: 'Gentle moisturizer for baby skin', brand: 'Johnson’s', tag: ['baby-friendly', 'skin-care'], location: [80, 250], favorite: false },
+    { id: 12, name: 'Kleenex Tissues', price: 1.99, description: 'Soft and absorbent facial tissues', brand: 'Kleenex', tag: ['soft', 'absorbent'], location: [90, 135], favorite: false },
     { id: 13, name: 'Coca-Cola (6-Pack)', price: 6.99, description: 'Refreshing carbonated beverage', brand: 'Coca-Cola', tag: ['beverage', 'carbonated'], location: [190, 110], favorite: false },
-    { id: 14, name: 'Aquafina Bottled Water', price: 1.29, description: 'Pure and refreshing water', brand: 'Aquafina', tag: ['beverage', 'hydration'], location: [150, 150], favorite: false },
-    { id: 15, name: 'Pringles Sour Cream Chips', price: 2.99, description: 'Flavored potato crisps in a can', brand: 'Pringles', tag: ['snack', 'flavored'], location: [120, 170], favorite: false },
-    { id: 16, name: 'Gillette Razor', price: 7.99, description: 'Smooth and precise shaving', brand: 'Gillette', tag: ['shaving', 'precision'], location: [130, 190], favorite: false },
-    { id: 17, name: 'Heinz Ketchup', price: 2.49, description: 'Classic tomato ketchup for every meal', brand: 'Heinz', tag: ['condiment', 'savory'], location: [140, 140], favorite: false },
-    { id: 18, name: 'Febreze Air Freshener', price: 4.99, description: 'Eliminates odors and freshens the air', brand: 'Febreze', tag: ['freshener', 'air-care'], location: [150, 100], favorite: false },
-    { id: 19, name: "Hershey's Milk Chocolate Bar", price: 1.29, description: 'Classic milk chocolate treat', brand: 'Hershey’s', tag: ['snack', 'chocolate'], location: [180, 180], favorite: false },
-    { id: 20, name: 'Lipton Green Tea Bags', price: 5.99, description: 'Refreshing and healthy green tea', brand: 'Lipton', tag: ['beverage', 'healthy'], location: [130, 120], favorite: false }
+    { id: 14, name: 'Aquafina Bottled Water', price: 1.29, description: 'Pure and refreshing water', brand: 'Aquafina', tag: ['beverage', 'hydration'], location: [155, 150], favorite: false },
+    { id: 15, name: 'Pringles Sour Cream Chips', price: 2.99, description: 'Flavored potato crisps in a can', brand: 'Pringles', tag: ['snack', 'flavored'], location: [90, 170], favorite: false },
+    { id: 16, name: 'Gillette Razor', price: 7.99, description: 'Smooth and precise shaving', brand: 'Gillette', tag: ['shaving', 'precision'], location: [200, 230], favorite: false },
+    { id: 17, name: 'Heinz Ketchup', price: 2.49, description: 'Classic tomato ketchup for every meal', brand: 'Heinz', tag: ['condiment', 'savory'], location: [220, 150], favorite: false },
+    { id: 18, name: 'Febreze Air Freshener', price: 4.99, description: 'Eliminates odors and freshens the air', brand: 'Febreze', tag: ['freshener', 'air-care'], location: [157, 115], favorite: false },
+    { id: 19, name: "Hershey's Milk Chocolate Bar", price: 1.29, description: 'Classic milk chocolate treat', brand: 'Hershey’s', tag: ['snack', 'chocolate'], location: [180, 185], favorite: false },
+    { id: 20, name: 'Lipton Green Tea Bags', price: 5.99, description: 'Refreshing and healthy green tea', brand: 'Lipton', tag: ['beverage', 'healthy'], location: [57, 120], favorite: false }
 ];
 
 

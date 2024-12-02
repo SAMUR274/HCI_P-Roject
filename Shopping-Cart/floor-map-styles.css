@@ -98,3 +98,19 @@
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
 } 
+
+.checkout-table table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.checkout-table th, .checkout-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.checkout-table th {
+    background-color: #f1f1f1;
+}

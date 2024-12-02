@@ -31,7 +31,7 @@ function onStoreClick(storeName) {
     setTimeout(() => {
         alert(`Heading over to the store website for ${storeName}`);
         // Redirect to the shopping cart page at the correct port
-        window.location.href = 'http://localhost:8081/index.html#shopping-cart';
+        window.location.href = '../Shopping-Cart/shopping-cart.html';
     }, 1000); // 1-second delay
 }
 const dummyLocation = {
@@ -87,7 +87,10 @@ function getUserLocation() {
 
 function checkIn(){
     if (selectedStoreName) {
-        alert(`You have successfully checked into ${selectedStoreName}!`);
+        setTimeout(() => {
+            alert(`You have successfully checked into ${selectedStoreName}!`);
+            window.location.href = '../Shopping-Cart/shopping-cart.html';
+        }, 1000); // 1-second delay
     } else {
         alert("Please select a store before checking in.");
     }
