@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Floor Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="./floor-map-styles.css">
+</head>
+<body>
+    <div class="map-container">
+        <div id="storeMap"></div>
+        <div class="item-list">
+            <h2>Your Items</h2>
+            <ul id="selectedItems">
+                <!-- Items will be dynamically added here -->
+            </ul>
+        </div>
+        <div class="legend">
+            <h3>Crowd Density</h3>
+            <div class="legend-item">
+                <span class="color-box low"></span>Low
+            </div>
+            <div class="legend-item">
+                <span class="color-box medium"></span>Medium
+            </div>
+            <div class="legend-item">
+                <span class="color-box high"></span>High
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="./floor-map.js"></script>
+</body>
+</html> 
