@@ -4,36 +4,116 @@ const attribution =
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Coded by coder\'s gyan with ❤️';
 const tileLayer = L.tileLayer(tileUrl, { attribution });
 tileLayer.addTo(myMap);
-let selectedStoreName = null;
+const crowdLevelMapping = { "Low": 2, "Medium": 4, "High": 6, "Too High": 7 };
 
-const crowdDensityLevels = {};
-storeList.forEach(store => {
-    const crowdLevelMapping = { "Low": 2, "Medium": 4, "High": 6, "Too High": 7 }; // Map levels to bar count
-    crowdDensityLevels[store.properties.name] = crowdLevelMapping[store.properties.crowd] || 0;
-});
-function updateCrowdMeter(storeName) {
-    const bars = document.querySelectorAll('.meter .bar');
-    const crowdLevel = crowdDensityLevels[storeName] || 0;
+function generateList() {
+    const ul = document.querySelector('.list');
+    ul.innerHTML = ''; // Clear existing content
 
-    bars.forEach((bar, index) => {
-        if (index < crowdLevel) {
-            bar.classList.add('active');
-        } else {
-            bar.classList.remove('active');
-        }
+    // Clear existing layers from the map
+    if (window.shopsLayer) {
+        myMap.removeLayer(shopsLayer);
+    }
+
+    // Marker and Popup Logic
+    const markers = [];
+    const crowdLevelMapping = { "Low": 2, "Medium": 4, "High": 6, "Too High": 7 };
+    const crowdColors = {
+        "Low": "green",
+        "Medium": "orange",
+        "High": "red",
+        "Too High": "darkred",
+        "Unknown": "gray",
+    };
+
+    storeList.forEach((store) => {
+        const crowdLevel = store.properties.crowd || 'Unknown';
+
+        // Create list items
+        const li = document.createElement('li');
+        const div = document.createElement('div');
+        const a = document.createElement('a');
+        const p = document.createElement('p');
+        const customizeButton = document.createElement('button');
+
+        // Store name and address
+        a.innerText = store.properties.name;
+        a.href = '#';
+        p.innerText = store.properties.address;
+
+        // Add click event to store name
+        a.addEventListener('click', () => {
+            selectedStoreName = store.properties.name;
+            flyToStore(store);
+        });
+
+        // Configure button
+        customizeButton.innerText = "Start Customizing List";
+        customizeButton.classList.add('customize-btn');
+        customizeButton.addEventListener('click', () => {
+            onStoreClick(store.properties.name); // Launch onStoreClick function
+        });
+
+        // Add crowd indicator
+        const crowdIndicator = document.createElement('div');
+        crowdIndicator.classList.add('crowd-indicator');
+        crowdIndicator.innerHTML = `
+            <span class="crowd-circle" style="background-color: ${crowdColors[crowdLevel]}"></span>
+            <span class="crowd-label">${crowdLevel}</span>
+        `;
+
+        // Add crowd meter
+        const meter = document.createElement('div');
+        meter.classList.add('meter');
+        meter.innerHTML = Array.from({ length: 7 }, (_, i) => `
+            <div class="bar ${i < crowdLevelMapping[store.properties.crowd] ? 'active' : ''}"></div>
+        `).join('');
+
+        // Assemble the list item
+        div.classList.add('shop-item');
+        div.appendChild(a);
+        div.appendChild(p);
+        div.appendChild(customizeButton); // Add "Start Customizing List" button
+        div.appendChild(crowdIndicator);
+        div.appendChild(meter);
+        li.appendChild(div);
+        ul.appendChild(li);
+
+        // Add markers to the map
+        const marker = L.marker([store.geometry.coordinates[1], store.geometry.coordinates[0]], {
+            icon: L.icon({
+                iconUrl: 'marker.png', // Replace with your marker icon URL
+                iconSize: [30, 40],
+            }),
+        }).addTo(myMap);
+
+        // Bind popup to marker
+        marker.bindPopup(`
+            <h4>${store.properties.name}</h4>
+            <p>${store.properties.address}</p>
+            <p><strong>Crowd Level:</strong> ${crowdLevel}</p>
+        `);
+
+        markers.push(marker);
     });
-}
-function onStoreClick(storeName) {
-    updateCrowdMeter(storeName);
-    console.log(`Crowd meter updated for ${storeName}`);
 
-    // Add a timeout before redirecting to simulate loading
-    setTimeout(() => {
-        alert(`Heading over to the store website for ${storeName}`);
-        // Redirect to the shopping cart page at the correct port
-        window.location.href = '../Shopping-Cart/shopping-cart.html';
-    }, 1000); // 1-second delay
+    // Show fallback message if no stores are available
+    const fallbackMessage = document.getElementById('fallback');
+    if (storeList.length === 0) {
+        fallbackMessage.style.display = 'block';
+    } else {
+        fallbackMessage.style.display = 'none';
+    }
+
+    // Group markers for better map view
+    if (markers.length > 0) {
+        const group = L.featureGroup(markers);
+        myMap.fitBounds(group.getBounds());
+    }
+
 }
+
+
 const dummyLocation = {
     latitude: 43.8971,
     longitude: -78.8658,
@@ -110,41 +190,17 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
     return R * c; // Distance in km
 }
 
-// function onStoreClick(storeName) {
-//     updateCrowdMeter(storeName);
-//     console.log(`Crowd meter updated for ${storeName}`);
+function onStoreClick(storeName) {
+    console.log(`Crowd meter updated for ${storeName}`);
 
-//     // Add a timeout before redirecting to simulate loading
-//     setTimeout(() => {
-//         alert(`Heading over to the store website for ${storeName}`);
-//         // Redirect to the shopping cart page
-//         window.location.href = '../Shopping-Cart-JavaScript/index.html';
-//     }, 1000); // 1-second delay
-// }
-
-function generateList() {
-    const ul = document.querySelector('.list');
-    storeList.forEach((shop) => {
-        const li = document.createElement('li');
-        const div = document.createElement('div');
-        const a = document.createElement('a');
-        const p = document.createElement('p');
-        a.addEventListener('click', () => {
-            selectedStoreName = shop.properties.name;
-            flyToStore(shop);
-            updateCrowdMeter(shop.properties.name); // Update crowd meter on click
-        });
-        div.classList.add('shop-item');
-        a.innerText = shop.properties.name;
-        a.href = '#';
-        p.innerText = shop.properties.address;
-
-        div.appendChild(a);
-        div.appendChild(p);
-        li.appendChild(div);
-        ul.appendChild(li);
-    });
+    // Add a timeout before redirecting to simulate loading
+    setTimeout(() => {
+        alert(`Heading over to the store website for ${storeName}`);
+        // Redirect to the shopping cart page
+        window.location.href = '../Shopping-Cart/shopping-cart.html';
+    }, 1000); // 1-second delay
 }
+
 generateList();
 
 function makePopupContent(shop) {
@@ -164,7 +220,6 @@ function onEachFeature(feature, layer) {
     layer.on('click', () => {
         selectedStoreName = feature.properties.name;
         flyToStore(feature);
-        updateCrowdMeter(selectedStoreName); // Update crowd meter
     });
 }
 
@@ -193,9 +248,6 @@ function flyToStore(store) {
             .setContent(makePopupContent(store))
             .openOn(myMap);
     }, 1000);
-
-    // Update the crowd meter
-    updateCrowdMeter(store.properties.name);
 }
 
 

@@ -15,23 +15,23 @@
 
 <body>
     <!-- Top Navigation Bar -->
-    <div class="topnav">
+    <!-- <div class="topnav">
         <div class="search-container">
-            <form action="javascript:void(0);" class="search-bar">
+            <form action="javascript:void(0);" class="search-bar"> -->
                 <!-- Search Box -->
-                <input type="text" id="searchBox" placeholder="Search for a store..." onfocus="showSuggestions()"
-                    oninput="filterShops()" />
+                <!-- <input type="text" id="searchBox" placeholder="Search for a store..." onfocus="showSuggestions()"
+                    oninput="filterShops()" /> -->
 
                 <!-- Allow Location Button -->
-                <button type="button" id="allowLocation" onclick="getUserLocation()">
+                <!-- <button type="button" id="allowLocation" onclick="getUserLocation()">
                     Allow Location
                 </button>
-            </form>
+            </form> -->
 
             <!-- Suggestions Dropdown -->
-            <ul id="suggestionList" class="suggestions"></ul>
+            <!-- <ul id="suggestionList" class="suggestions"></ul>
         </div>
-    </div>
+    </div> -->
 
     <main>
         <!-- Store List -->
@@ -40,25 +40,13 @@
                 <h2>Our Outlets</h2>
             </div>
             <ul class="list">
-                <!-- Dynamic Store List -->
+                <!-- Dynamic Store List with Crowd Meter -->
+                 
             </ul>
         </div>
 
         <!-- Map Container -->
         <div id="map"></div>
-
-        <!-- Crowd Meter -->
-        <div class="crowd-meter">
-            <p><strong>Crowd Meter</strong></p>
-            <div class="meter">
-                <div class="bar" id="bar1"></div>
-                <div class="bar" id="bar2"></div>
-                <div class="bar" id="bar3"></div>
-                <div class="bar" id="bar4"></div>
-                <div class="bar" id="bar5"></div>
-            </div>
-            <button class="check-in-btn" onclick="checkIn()">Check-in</button>
-        </div>
     </main>
 
     <!-- Leaflet Map Script -->
@@ -70,5 +58,6 @@
     <script src="./stores.js"></script>
     <script src="./app.js"></script>
 </body>
+
 
 </html>
