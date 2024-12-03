@@ -4,45 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store Floor Map</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <link rel="stylesheet" href="./floor-map-styles.css">
 </head>
 <body>
     <div class="map-container">
         <div id="storeMap"></div>
-        <div class="item-list">
-            <h2>Your Items</h2>
-            <ul id="selectedItems">
-                <!-- Items will be dynamically added here -->
-            </ul>
-        </div>
-        <div class="legend">
-            <h3>Crowd Density</h3>
-            <div class="legend-item">
-                <span class="color-box low"></span>Low
+        <div class="container">
+            <!-- Checkout Status -->
+            <div class="checkout-status">
+                <h3>Checkout Status</h3>
+                <ul id="queueData">
+                    <li>Checkout 1: 2 people</li>
+                    <li>Checkout 2: 4 people</li>
+                    <li>Checkout 3: 1 person</li>
+                </ul>
             </div>
-            <div class="legend-item">
-                <span class="color-box medium"></span>Medium
+        
+            <!-- Shopping Checklist -->
+            <div class="shopping-checklist">
+                <h3>Shopping Checklist</h3>
+                <ul id="checklist">
+                    <li>
+                        <input type="checkbox" />
+                        <img src="https://via.placeholder.com/40" alt="Item Image" />
+                        <span>Huggies Baby Wipes</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        <img src="https://via.placeholder.com/40" alt="Item Image" />
+                        <span>Lay's Classic Potato Chips</span>
+                    </li>
+                    <!-- Add more items dynamically -->
+                </ul>
             </div>
-            <div class="legend-item">
-                <span class="color-box high"></span>High
+        
+            <!-- Estimated Time -->
+            <div class="estimated-time">
+                <h3>Estimated Time</h3>
+                <p id="remainingTime">Estimated Time: 10 minutes</p>
             </div>
-            <!-- Checkout Table Inside Legend -->
-            <h3>Checkout Crowds</h3>
-            <table id="checkoutTable">
-                <thead>
-                    <tr>
-                        <th>Estimated Wait</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table rows will be dynamically added here -->
-                </tbody>
-            </table>
         </div>
     </div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
     <script src="./floor-map.js"></script>
 </body>
-</html> 
+</html>

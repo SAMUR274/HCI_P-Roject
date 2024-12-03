@@ -114,3 +114,89 @@
 .checkout-table th {
     background-color: #f1f1f1;
 }
+
+/* General container styling */
+.container {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkout Status styling */
+.checkout-status {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+}
+
+.checkout-status h3 {
+    margin-top: 0;
+    color: #3c763d;
+}
+
+/* Shopping Checklist styling */
+.shopping-checklist {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #d9edf7;
+    border: 1px solid #bce8f1;
+    border-radius: 5px;
+}
+
+.shopping-checklist h3 {
+    margin-top: 0;
+    color: #31708f;
+}
+
+.shopping-checklist ul {
+    list-style: none;
+    padding: 0;
+}
+
+.shopping-checklist li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.shopping-checklist li img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.shopping-checklist li span {
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.shopping-checklist li input {
+    margin-right: 10px;
+}
+
+/* Estimated Time styling */
+.estimated-time {
+    padding: 10px;
+    background-color: #fcf8e3;
+    border: 1px solid #faebcc;
+    border-radius: 5px;
+}
+
+.estimated-time h3 {
+    margin-top: 0;
+    color: #8a6d3b;
+}
+
+.estimated-time p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
