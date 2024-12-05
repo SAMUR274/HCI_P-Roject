@@ -15,6 +15,8 @@ The **Smart Shopping Navigator App** enhances the in-store shopping experience b
 - **Store Location with Map**  
   View nearby stores on a map, including crowd density and product availability.  
   ![Screenshot: Store location on map](path-to-image)
+  ![Screenshot: Store location on map_1](path-to-image)
+  
 
 - **Start Customizing List**  
   Users can select a store and begin customizing their shopping list with a single click.
