@@ -73,28 +73,9 @@ View nearby stores on a map, including crowd density and product availability.
 
 ---
 
-## **Screenshots**
+## **Live Vidoe Demo**
 
-### **Out-of-Store Features**
-1. **Crowd Density Visualization**  
-   ![Crowd density screenshot](path-to-image)
 
-2. **Store Location with Map**  
-   ![Store location screenshot](path-to-image)
-
-### **In-Store Features**
-3. **Shopping List Management**  
-   ![Shopping list screenshot](path-to-image)
-
-4. **Smart Navigation with Optimized Routes**  
-   ![Navigation map screenshot](path-to-image)
-
-5. **Checklist and Progress Tracking**  
-   ![Checklist screenshot](path-to-image)
-
-### **Checkout Assistance**
-6. **Queue Monitoring**  
-   ![Queue monitoring screenshot](path-to-image)
 
 ---
 
