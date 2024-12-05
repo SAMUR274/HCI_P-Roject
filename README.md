@@ -19,6 +19,7 @@ View nearby stores on a map, including crowd density and product availability.
 - **Pick Store And Confirm**  
   Users can select a store and confrim.
 ![Store Selection Confirmation](StoreSelection_Confirmation.png)
+![Store Selection Confirmation](ScreenshotTaking%20User%20To%20Store.png)
 
 
 ---
