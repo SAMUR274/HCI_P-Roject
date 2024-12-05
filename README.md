@@ -16,7 +16,7 @@ View nearby stores on a map, including crowd density and product availability.
 ![Store location map](Store%20location%20on%20map.png)
   
 
-- **Start Customizing List**  
+- **Pick Store And Confirm**  
   Users can select a store and begin customizing their shopping list with a single click.
 ![Store Selection Confirmation](StoreSelection_Confirmation.png)
 
