@@ -28,32 +28,31 @@ View nearby stores on a map, including crowd density and product availability.
 - **Shopping List Management**  
   - Add, update, or delete items from the shopping list.  
   - See live updates for the total cost as you manage the list.  
-  ![Screenshot: Shopping list management interface](path-to-image)
+  ![Screenshot: Shopping list management interface](Shopping%20list%20management%20interface.png)
 
+- **Final Confirmation**  
+  Allows users to review their shopping list before proceeding to checkout.
+![Screenshot: Checkout queue monitoring](confrimItemSelection.png)
+---
 - **Smart Navigation**  
   - The app generates the most efficient route based on the store layout.  
   - Guides users to the nearest items on their list and provides estimated pickup times.  
-  ![Screenshot: Optimized navigation route](path-to-image)
+  ![Screenshot: Optimized navigation route](Optimized%20navigation%20route.png)
 
 - **Checklist for Progress Tracking**  
   - Users can check off items from their shopping list as they pick them up.  
-  ![Screenshot: Checklist feature](path-to-image)
+  ![Screenshot: Checklist feature](Checklist%20feature.png)
 
-- **Product Details**  
-  - Click on any item to view its details, such as price, attributes, and a sample image.  
-  ![Screenshot: Enlarged product details](path-to-image)
+
 
 ---
 
 ### **3. Checkout Assistance**
 - **Queue Monitoring**  
   Displays real-time data on checkout queue lengths to help users pick the shortest line.  
-  ![Screenshot: Checkout queue monitoring](path-to-image)
+  ![Screenshot: Checkout queue monitoring](Checkout%20queue%20monitoring.png)
 
-- **Final Confirmation**  
-  Allows users to review their shopping list before proceeding to checkout.
 
----
 
 ## **How It Works**
 
