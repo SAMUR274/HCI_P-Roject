@@ -13,7 +13,7 @@ Displays real-time crowd levels for stores using visual indicators (*Low*, *Medi
 
 ### **Store Location with Map**
 View nearby stores on a map, including crowd density and product availability.  
-![Store location map](screenshots/Store-location-on-map.png)
+![Store location map](Store%20location%20on%20map.png)
   
 
 - **Start Customizing List**  
