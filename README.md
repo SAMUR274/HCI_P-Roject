@@ -1,4 +1,4 @@
-Smart Shopping Navigator App
+##Smart Shopping Navigator App
 Overview
 The Smart Shopping Navigator App is designed to revolutionize the shopping experience by making it safer, faster, and more efficient. By integrating real-time data, smart navigation, and intelligent algorithms, the app ensures a seamless experience for users both outside and inside stores.
 
