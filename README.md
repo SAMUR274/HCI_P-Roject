@@ -9,7 +9,7 @@ The **Smart Shopping Navigator App** enhances the in-store shopping experience b
 
 ### **1. Out-of-Store Navigation**
 - **Crowd Density Visualization**  
-  Displays real-time crowd levels for stores using heat maps and visual indicators (*Low*, *Medium*, or *High*).  
+  Displays real-time crowd levels for stores using  visual indicators (*Low*, *Medium*, or *High*).  
   ![Screenshot: Crowd density visualization](path-to-image)
 
 - **Store Location with Map**  
