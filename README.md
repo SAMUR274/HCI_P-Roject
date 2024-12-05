@@ -20,6 +20,8 @@ The **Smart Shopping Navigator App** enhances the in-store shopping experience b
 
 - **Start Customizing List**  
   Users can select a store and begin customizing their shopping list with a single click.
+ ![Screenshot: Store Selection](path-to-image)
+ ![Screenshot:Taking User To Store](path-to-image)
 
 ---
 
