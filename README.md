@@ -109,4 +109,5 @@ The **Smart Shopping Navigator App** enhances the in-store shopping experience b
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/<your-repo-name>.git
+ [  git clone https://github.com/<your-repo-name>.git](https://github.com/SAMUR274/HCI_P-Roject.git)
+ 
