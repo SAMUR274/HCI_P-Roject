@@ -8,7 +8,7 @@ The **Smart Shopping Navigator App** enhances the in-store shopping experience b
 ## **Features**
 
 Displays real-time crowd levels for stores using visual indicators (*Low*, *Medium*, or *High*).  
-![Screenshot Store location on map](Screenshot%20Store%20location%20on%20map_1.png)
+![Crowd density visualization](Crowd%20density%20visualization.png)
 
 
 ### **Store Location with Map**
@@ -18,8 +18,8 @@ View nearby stores on a map, including crowd density and product availability.
 
 - **Start Customizing List**  
   Users can select a store and begin customizing their shopping list with a single click.
- ![Screenshot: Store Selection](path-to-image)
- ![Screenshot:Taking User To Store](path-to-image)
+![Store Selection Confirmation](StoreSelection_Confirmation.png)
+
 
 ---
 
