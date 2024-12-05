@@ -99,9 +99,9 @@ The **Smart Shopping Navigator App** enhances the in-store shopping experience b
 ## **Technology Stack**
 
 - **Frontend**: HTML, CSS, JavaScript  
-- **Backend**: Node.js, Express.js  
-- **Database**: MongoDB  
-- **Additional Features**: IoT integration for real-time crowd density monitoring.
+ 
+
+
 
 ---
 
